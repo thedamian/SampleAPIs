@@ -4,10 +4,10 @@ head
   meta(name='viewport' content='width=device-width, initial-scale=1.0')
   meta(http-equiv='X-UA-Compatible' content='ie=edge')
   title Sample APIs
-  link(rel='stylesheet' href='/assets/styles/home-styles.css')
+  link(rel='stylesheet', href='/assets/styles/styles.css')
   link(rel='stylesheet' href='/assets/styles/code.css')
   
-  // FACEBOOK
+  //- FACEBOOK
   meta(property='og:title' content='Sample APIs')
   meta(property='og:site_name' content='Sample APIs')
   meta(property='og:url' content='https://sampleapis.com')
@@ -15,7 +15,7 @@ head
   meta(property='og:image' content='https://sampleapis.com/assets/images/poster.jpg')
   meta(property='og:type' content='website')
   
-  // TWITTER
+  //- TWITTER
   meta(property='twitter:card' content='A playground for RESTful and GraphQL endpoints.')
   meta(property='twitter:title' content='Sample APIs')
   meta(property='twitter:description' content='A playground for RESTful and GraphQL endpoints.')
@@ -24,12 +24,14 @@ head
   meta(property='twitter:image' content='https://sampleapis.com/assets/images/poster.jpg')
   meta(property='twitter:image:alt' content='Sample APIs')
   
-  // Global site tag (gtag.js) - Google Analytics
+  //- Global site tag (gtag.js) - Google Analytics
   script(async='async' src='https://www.googletagmanager.com/gtag/js?id=UA-125356349-1')
   script.
     window.dataLayer = window.dataLayer || [];
     function gtag() {
     dataLayer.push(arguments);
     }
-    gtag("js", new Date());
-    gtag("config", "UA-125356349-1");
+    gtag('js', new Date());
+    gtag('config', 'UA-125356349-1');
+
+body

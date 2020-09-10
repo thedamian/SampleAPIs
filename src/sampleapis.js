@@ -1,6 +1,8 @@
 const express = require("express");
 const path = require("path");
 const cors = require("cors");
+const livereload = require("livereload");
+const connectLivereload = require("connect-livereload");
 const ApiList = require("./apiList");
 // const morgan = require('morgan');
 // const corsOptions = require("./cors");
@@ -12,8 +14,21 @@ const port = process.env.PORT || 5555;
 // Static Files
 app.use(express.static(path.join(__dirname, "/public")));
 
-// View Engine
-app.set("view engine", "pug");
+// Live Reload
+const liveReloadServer = livereload.createServer();
+liveReloadServer.watch(path.join(__dirname, 'public'));
+liveReloadServer.watch(path.join(__dirname, 'src/views'));
+liveReloadServer.server.once('connection', () => {
+  setTimeout(() => {
+    console.log('reloading')
+    liveReloadServer.refresh('/')
+  }, 100)
+})
+
+app.use(connectLivereload());
+
+// View Engine 
+app.set("view engine", "pug")
 app.set("views", path.join(__dirname, `/views`));
 
 // CORS
